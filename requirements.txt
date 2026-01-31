@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+playwright
+paddleocr
+paddlepaddle
+selectolax
+tenacity
+loguru
+streamlit
+requests
+python-dotenv
