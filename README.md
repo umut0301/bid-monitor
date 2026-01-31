@@ -69,7 +69,7 @@ DINGTALK_WEBHOOK_URL=
 在首次运行前，需要初始化数据库，创建所需的表和索引。
 
 ```bash
-python app/core/database.py
+python init_database.py
 ```
 
 #### 5. 运行爬虫调度器
@@ -77,7 +77,7 @@ python app/core/database.py
 这将启动一个阻塞式的调度器，默认每小时执行一次爬取任务，并立即执行首次任务。
 
 ```bash
-python crawler/scheduler.py
+python run_crawler.py
 ```
 
 #### 6. 启动数据看板
@@ -95,7 +95,7 @@ streamlit run dashboard/main_dashboard.py
 ### 项目结构
 
 ```
-.bid-monitor/
+bid-monitor/
 ├── app/                      # 应用核心模块
 │   ├── core/                 # 核心逻辑 (数据库, 匹配, 推送)
 │   ├── crud/                 # 数据库增删改查
@@ -111,10 +111,35 @@ streamlit run dashboard/main_dashboard.py
 ├── tests/                    # 测试目录
 │   ├── unit/                 # 单元测试
 │   └── integration/          # 集成测试
+├── docs/                     # 文档目录
+│   ├── DEVELOPMENT_LOG.md    # 开发日志
+│   ├── USER_GUIDE.md         # 使用指南
+│   ├── DEVELOPER_GUIDE.md    # 开发指南
+│   ├── RESEARCH_REPORT.md    # 技术调研报告
+│   ├── SYSTEM_DESIGN.md      # 系统设计文档
+│   └── PROJECT_DELIVERY.md   # 项目交付总结
+├── init_database.py          # 数据库初始化脚本
+├── run_crawler.py            # 爬虫启动脚本
 ├── .env.example              # 环境变量示例
 ├── requirements.txt          # Python依赖
 └── README.md                 # 项目说明
 ```
+
+---
+
+### 常见问题
+
+**Q: 运行时出现 "ModuleNotFoundError: No module named 'app'"**
+
+A: 请使用项目根目录下的启动脚本：
+```bash
+python init_database.py  # 初始化数据库
+python run_crawler.py    # 启动爬虫
+```
+
+**Q: 如何查看更多文档？**
+
+A: 所有详细文档都在 `docs/` 目录下，包括使用指南、开发指南等。
 
 ---
 
